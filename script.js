@@ -3,8 +3,8 @@ import { check, sleep } from 'k6';
 
 // Load test configuration
 export const options = {
-    vus: 10, // Virtual users
-    duration: '1m', // Test duration
+    vus: __ENV.VUS || 10, // Default to 10 if no VUS is passed
+    duration: __ENV.DURATION || '1m', // Default to 1 minute if no duration is passed
 };
 
 export default function () {
